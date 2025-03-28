@@ -18,7 +18,11 @@ function Menubar() {
           alignItems: "center",
         }}
       >
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        {/* Clickable Logo for Home Navigation */}
+        <Box
+          sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+          onClick={() => navigate("/")} // Redirect to home page
+        >
           <img
             src={bitesdigestlogo}
             alt="Bites Digest Logo"

@@ -28,9 +28,9 @@ const BlogList = ({ blogs }) => {
         {blogs.map((blog) => (
           <Grid
             item
-            xs={12}
-            sm={6}
-            md={4}
+            xs={12} // Full width on small screens (mobile)
+            sm={6} // Two cards per row on tablets
+            md={4} // Three cards per row on medium screens and larger
             key={blog.id}
             display="flex"
             justifyContent="center"

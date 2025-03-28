@@ -4,17 +4,17 @@ import bitesdigestlogo from "../assets/bitesdigestlogo.png";
 import securityvpn from "../assets/securityvpn.jpg";
 import nordvpn from "../assets/nordvpn.jpg";
 
-
 function Footer() {
   return (
     <Box
       sx={{
         display: "flex",
-        justifyContent: "space-between", 
-        alignItems: "center",
+        flexDirection: { xs: "column", md: "row" }, // Column on tablets, row on larger screens
+        justifyContent: "space-between",
+        alignItems: { xs: "flex-start", md: "center" },
         padding: "35px",
         backgroundColor: "#002925",
-        gap: "40px",
+        gap: { xs: "20px", md: "40px" }, // Adjust gap for responsiveness
       }}
     >
       {/* Left Section */}
@@ -42,49 +42,30 @@ function Footer() {
       {/* Middle Section */}
       <Stack spacing={1} textAlign="left" sx={{ color: "#FFFFFF" }}>
         <Typography>Our Policy</Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            transition: "opacity 0.1s ease-in-out",
-            "&:hover": { opacity: 0.7 },
-          }}
-        >
-          Privacy Policy
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            transition: "opacity 0.1s ease-in-out",
-            "&:hover": { opacity: 0.7 },
-          }}
-        >
-          Affiliate Policy
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            transition: "opacity 0.1s ease-in-out",
-            "&:hover": { opacity: 0.7 },
-          }}
-        >
-          Cookie Policy
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            transition: "opacity 0.1s ease-in-out",
-            "&:hover": { opacity: 0.7 },
-          }}
-        >
-          Terms And Conditions
-        </Typography>
+        {[
+          "Privacy Policy",
+          "Affiliate Policy",
+          "Cookie Policy",
+          "Terms And Conditions",
+        ].map((policy, index) => (
+          <Typography
+            key={index}
+            variant="body2"
+            sx={{
+              transition: "opacity 0.1s ease-in-out",
+              "&:hover": { opacity: 0.7 },
+            }}
+          >
+            {policy}
+          </Typography>
+        ))}
       </Stack>
 
       {/* Right Section */}
       <Stack spacing={1} textAlign="left" sx={{ color: "#FFFFFF" }}>
         <Typography variant="h6">Our Picks</Typography>
 
-        {/* First Item with Dark Green Hover Effect */}
+        {/* First Item */}
         <Stack direction="row" alignItems="flex-start" spacing={2}>
           <Box
             component="img"
@@ -99,19 +80,20 @@ function Footer() {
               lineHeight: 1.4,
               maxWidth: 250,
               transition: "color 0.3s ease-in-out",
-              "&:hover": { color: "#006400", cursor: "pointer" }, // Dark Green
+              "&:hover": { color: "#006400", cursor: "pointer" },
             }}
           >
             NordVPN Vs Kaspersky VPN: Choosing the Best VPN Of 2024
           </Typography>
         </Stack>
 
-        {/* Second Item with Dark Green Hover Effect */}
+        {/* Second Item */}
         <Stack
           direction="row"
           alignItems="flex-start"
           spacing={2}
-          sx={{ borderTop: "1px solid rgba(204, 204, 204, 0.5)", mt: 1, pt: 1 }} >
+          sx={{ borderTop: "1px solid rgba(204, 204, 204, 0.5)", mt: 1, pt: 1 }}
+        >
           <Box
             component="img"
             src={securityvpn}
